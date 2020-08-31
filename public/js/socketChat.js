@@ -1,7 +1,5 @@
 const socket = io()
 
-const params = new URLSearchParams(window.location.search)
-
 if(!params.has('nombre') || !params.has('sala')){
     window.location = 'index.html'
     throw new Error ('El nombre y sala son necesarios')
@@ -16,7 +14,8 @@ socket.on('connect', () => {
     console.log('Conectado al servidor')
 
     socket.emit('entrarChat', usuario, (res) => {
-        console.log('Usuario conectados', res)
+        // console.log('Usuario conectados', res)
+        renderizarUsuarios(res)
     })
 })
 
@@ -43,12 +42,13 @@ socket.emit('enviarMensaje', {
 
 // Escuchar información cuando una persona se deconecta
 socket.on('crearMensaje', (mensaje) => {
-    console.log('Servidor:', mensaje)
+    renderizarMensajes(mensaje, false)
+    scrollBottom()
 })
 
 // Escuchar cuando una usuario se conecta o desconecta
 socket.on('listaPersonas', (personas) => {
-    console.log(personas)
+    renderizarUsuarios(personas)
 })
 
 //Mensaje privados

@@ -1,9 +1,19 @@
-# Notas:
+# Socket Chat:
 
-Este es un pequeño servidor de express listo para ejecutarse y servir la carpeta public en la web.
+Esta es una aplicación de chat hecha en NodeJS con Sockets.
 
-Recuerden que deben de reconstruir los módulos de node con el comando
+## Instalación:
+
+Debe instalar todas las dependencias, para eso ejecute el siguiente comando:
 
 ```
 npm install
 ```
+ ó
+
+ ```
+yarn
+```
+## Author
+
+* **Alejandro Ruiz Sánchez** - [alejor64](github.com/alejor64)
